@@ -136,7 +136,7 @@ function HeroSection() {
   <div className="mx-auto w-full max-w-7xl">
     <FadeUp>
       <div className="mx-auto max-w-4xl text-center">
-        <p className="mb-4 text-xs uppercase tracking-[0.35em] text-white/80">
+        <p className="mb-4 text-s uppercase tracking-[0.35em] text-white/80">
           Invest Smart with Alvara Maison
         </p>
 
