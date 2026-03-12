@@ -323,6 +323,7 @@ function WhyChooseUs() {
           transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
         >
           <SectionHeading
+            eyebrow=""
             title="Why Choose Us?"
             body="At Alvara Maison, we go beyond traditional rentals—we turn your property into a profitable, worry-free investment. Our expert team handles everything, from security and maintenance to guest management and financial stability, ensuring you enjoy consistent income with zero hassle."
             centered
