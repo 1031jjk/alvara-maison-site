@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const colors = {
   background: "#f5f0e8",
   cream: "#fbf8f3",
-  sand: "#ebe2d6",
+  sand: "#ece7e0",
   stone: "#ddd2c4",
   taupe: "#b4a594",
   warmButton: "#b8946a",
@@ -18,9 +18,11 @@ const colors = {
 };
 
 const heroImage =
-  "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1800&q=80";
-const contactHeroImage =
-  "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=80";
+  "https://nwdb.nyc/wp-content/uploads/2021/02/1216_176-Broadway-master-bedroom_02_D.jpg";
+const portfolioHeroImage =
+  "https://wwd.com/wp-content/uploads/2023/08/GettyImages-1357529184-e1690979672961.jpg";
+  const contactHeroImage =
+  "https://media.admiddleeast.com/photos/652a576827fa57f09b169936/16:9/w_2560%2Cc_limit/22060_press_jcarlyle_9-16-22_12.jpg";
 const successImage =
   "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=80";
 
@@ -30,12 +32,12 @@ const aboutImages = [
 ];
 
 const portfolioImages = [
-  "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80",
-  "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1400&q=80",
-  "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80",
-  "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1400&q=80",
-  "https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1400&q=80",
-  "https://images.unsplash.com/photo-1505693416388-36a1f4f4c7d5?auto=format&fit=crop&w=1400&q=80",
+  "https://wwd.com/wp-content/uploads/2023/08/GettyImages-1357529184-e1690979672961.jpg?w=1000&h=563&crop=1",
+  "https://www.atomic-ranch.com/wp-content/uploads/2024/01/DSC07799-800x533.jpg",
+    "https://cdn.mos.cms.futurecdn.net/9DFRUYnY3Eu7nGrgB8hygE.jpg",
+  "https://www.thespruce.com/thmb/eNEDy0ib4ReAvWikahyPQcWSQ4A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Screenshot2025-12-24at12.17.14PM-aef15f6399324fd59d3139f624d2e5b6.png",
+  "https://images.ctfassets.net/wlzmdirin2hy/4uv2NDkpa2YxdnUyJG72BI/1562a9496a6a0c02f5729655b0a146d5/lx_california79_hom_kalman_03",
+  "https://www.mountainliving.com/content/uploads/2024/12/u/p/ml-winter-ea-photo-2-scaled.jpg",
 ];
 
 function FadeUp({
@@ -77,10 +79,10 @@ function SectionHeading({
 
   return (
     <div className={`mb-10 max-w-4xl ${centered ? "mx-auto text-center" : ""}`}>
-      <p className="mb-3 text-xs uppercase tracking-[0.35em]" style={{ color: bodyColor }}>
+      <p className="mb-3 text-sm md:text-base uppercase tracking-[0.35em]" style={{ color: bodyColor }}>
         {eyebrow}
       </p>
-      <h2 className="text-3xl leading-tight md:text-5xl" style={{ color: headingColor, fontFamily: "Georgia, serif" }}>
+      <h2 className="text-3xl tracking-tight leading-[1.15] md:text-5xl" style={{ color: headingColor, fontFamily: "Georgia, serif" }}>
         {title}
       </h2>
       {body ? (
@@ -99,11 +101,15 @@ function SiteNav({ light = true }: { light?: boolean }) {
   const color = light ? "#ffffff" : colors.warmButtonText;
 
   return (
-    <div className="absolute inset-x-0 top-0 z-30 px-2 py-2 md:px-5 md:py-4">
+    <div className="absolute inset-x-0 top-0 z-30 px-2 py-2 md:px-6 md:py-3">
       <div className="flex w-full items-start justify-between">
-        <a href="#" className={`text-lg md:text-xl tracking-[0.18em] ${textClass}`} style={{ fontFamily: "Georgia, serif" }}>
-          ALVARA MAISON
-        </a>
+        <a href="#" className="flex items-center">
+  <img
+    src="/logo.png"
+    alt="Alvara Maison"
+    className="h-50 md:h-20 w-auto brightness-0 invert"
+  />
+</a>
         <div className="flex items-center gap-4 text-xs uppercase tracking-[0.18em] md:gap-8 md:text-sm">
           <a href="#" className={textClass}>Home</a>
           <a href="#about" className={textClass}>About us</a>
@@ -122,27 +128,38 @@ function SiteNav({ light = true }: { light?: boolean }) {
 
 function HeroSection() {
   return (
-    <section
-      className="relative flex min-h-[92vh] items-start overflow-hidden bg-cover bg-center bg-no-repeat px-6 py-8 md:px-10"
-      style={{ backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${heroImage})` }}
-    >
-      <SiteNav light />
-      <div className="mx-auto w-full max-w-7xl">
-        <FadeUp>
-          <div className="max-w-4xl pt-28 md:pt-36">
-            <p className="mb-4 text-xs uppercase tracking-[0.35em] text-white/80">
-              Refined property partnerships
-            </p>
-            <h1 className="text-5xl leading-tight text-white md:text-7xl" style={{ fontFamily: "Georgia, serif" }}>
-              Refined stays and dependable property performance.
-            </h1>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-white/85 md:text-lg">
-              Alvara Maison helps owners create a more effortless property experience through polished presentation, consistent care, and a hospitality model designed to support reliable income.
-            </p>
-          </div>
-        </FadeUp>
+ <section
+ className="relative flex min-h-[100vh] items-center overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed px-6 py-8 md:px-10"
+  style={{ backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${heroImage})` }}
+>
+  <SiteNav light />
+  <div className="mx-auto w-full max-w-7xl">
+    <FadeUp>
+      <div className="mx-auto max-w-4xl text-center">
+        <p className="mb-4 text-xs uppercase tracking-[0.35em] text-white/80">
+          Invest Smart with Alvara Maison
+        </p>
+
+        <h1
+          className="text-5xl leading-tight text-white md:text-7xl"
+          style={{ fontFamily: "'Playfair Display', serif" }}
+        >
+          Effortless Income,
+        </h1>
+ <h1
+          className="text-5xl leading-tight text-white md:text-7xl"
+          style={{ fontFamily: "'Playfair Display', serif" }}
+        >
+          Expert Care
+        </h1>
+
+        <p className="mt-6 mx-auto max-w-3xl text-base font light leading-8 text-white/85 md:text-lg">
+          Maximize returns, minimize stress. We transform properties into profitable, well-maintained luxury stays promising guaranteed income and a stress-free ownership experience.
+        </p>
       </div>
-    </section>
+    </FadeUp>
+  </div>
+</section>
   );
 }
 
@@ -238,41 +255,59 @@ function AboutSection() {
 function WhyChooseUs() {
   const items = [
     {
-      icon: "💰",
-      title: "Steady monthly income",
-      text: "A structured leasing model designed to support dependable monthly payments and less day to day uncertainty for owners.",
+      icon: "/Income.png",
+      title: "Steady Monthly Income",
+      text: "A structured leasing model designed to ensure steady monthly payments and less uncertainty for owners.",
+      delay: 0.05,
+      y: 18,
+      rotate: -2,
     },
     {
-      icon: "🛡️",
-      title: "Enhanced security",
-      text: "Smart home safeguards, clear rules, and a more intentional guest process help keep each property protected.",
+      icon: "/Security.png",
+      title: "Enhanced Security Features",
+      text: "We prioritize safety with 24/7 monitoring, smart lock technology, and real-time noise detection, providing protection for both your home and guests.",
+      delay: 0.12,
+      y: 24,
+      rotate: 2,
     },
     {
-      icon: "✨",
+      icon: "/Care.png",
       title: "Exceptional property care",
-      text: "Professional cleaning, regular oversight, and strong presentation standards help protect the condition of the home.",
+      text: "Professional cleaning, regular oversight, and strong presentation standards help protect the condition of your home.",
+      delay: 0.18,
+      y: 30,
+      rotate: -1,
     },
     {
-      icon: "📈",
-      title: "Strong financial foundation",
-      text: "A more stable operating model built around consistency, planning, and responsible execution rather than vacancy risk.",
+      icon: "/Finance.png",
+      title: "Strong Financial Stability",
+      text: "Our strong financial backing means you’ll enjoy dependable earnings, regardless of market trends or seasonal fluctuations.",
+      delay: 0.1,
+      y: 18,
+      rotate: 1,
     },
     {
-      icon: "🏠",
-      title: "Reduced vacancy friction",
-      text: "We manage transitions, guest coordination, and turnover logistics so the property stays active and operationally smooth.",
+      icon: "/Vacancy.png",
+      title: "Eliminate Vacancy Costs",
+      text: "Forget costly turnovers. We handle cleaning, maintenance, and seamless guest transitions to keep your property occupied and generating revenue year-round.",
+      delay: 0.16,
+      y: 24,
+      rotate: -2,
     },
     {
-      icon: "🤝",
-      title: "Refined partnership approach",
-      text: "A calmer, more professional owner experience centered on trust, responsiveness, and long term alignment.",
+      icon: "/Protection.png",
+      title: "$2M Property Protection",
+      text: "Your property is safeguarded with up to $2 million in coverage, adding an extra layer of protection against unexpected events.",
+      delay: 0.22,
+      y: 30,
+      rotate: 2,
     },
   ];
 
   return (
     <section
       id="why-section"
-      className="relative overflow-hidden px-6 py-16 md:px-10 md:py-24"
+      className="relative overflow-hidden px-6 py-16 md:px-10 md:py-18"
       style={{ backgroundColor: colors.background }}
     >
       <div
@@ -281,36 +316,62 @@ function WhyChooseUs() {
       />
 
       <div className="relative z-30 mx-auto max-w-7xl text-center">
-        <SectionHeading
-          eyebrow="Why choose us"
-          title="Clear owner benefits presented in a lighter and more centered layout."
-          body="This section is centered end to end so the structure feels different from the rest of the page and gives the site more variety."
-          centered
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.18 }}
+          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <SectionHeading
+            title="Why Choose Us?"
+            body="At Alvara Maison, we go beyond traditional rentals—we turn your property into a profitable, worry-free investment. Our expert team handles everything, from security and maintenance to guest management and financial stability, ensuring you enjoy consistent income with zero hassle."
+            centered
+          />
+        </motion.div>
 
         <div className="grid gap-x-10 gap-y-12 md:grid-cols-2 xl:grid-cols-3">
           {items.map((item) => (
-            <div
+            <motion.div
               key={item.title}
+              initial={{ opacity: 0, y: item.y, rotate: item.rotate }}
+              whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+              viewport={{ once: true, amount: 0.18 }}
+              transition={{
+                duration: 0.8,
+                delay: item.delay,
+                ease: [0.22, 1, 0.36, 1],
+              }}
               className="border-b pb-8 text-center"
               style={{ borderColor: colors.stone }}
             >
-              <div className="mb-4 flex justify-center text-3xl leading-none" aria-hidden="true">
-                <span>{item.icon}</span>
-              </div>
+              <motion.div
+                className="mb-4 flex justify-center"
+                initial={{ scale: 0.85, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.55, delay: item.delay + 0.08 }}
+              >
+                <img
+                  src={item.icon}
+                  alt={item.title}
+                  className="h-10 w-10 object-contain"
+                />
+              </motion.div>
+
               <h3
                 className="text-2xl leading-tight"
                 style={{ color: colors.text, fontFamily: "Georgia, serif" }}
               >
                 {item.title}
               </h3>
+
               <p
                 className="mx-auto mt-4 max-w-sm text-sm leading-7"
                 style={{ color: colors.muted }}
               >
                 {item.text}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -322,63 +383,121 @@ function SuccessSection() {
   const steps = [
     {
       image:
-        "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80",
-      title: "Reliable monthly income",
+        "https://cdn.decorilla.com/online-decorating/wp-content/uploads/2022/07/Modern-contemporary-interior-design-living-rooms-2-scaled.jpeg?width=900",
+      title: "Mission.",
       text:
-        "A structure designed to create consistency for owners, with dependable payments and less day to day uncertainty.",
+      <>
+        Our mission is to provide property owners with guaranteed income, minimized risks, and impeccable care for their homes, all while delivering unforgettable stays for our guests. We bridge the gap between owners seeking peace of mind and travelers looking for high-quality, short-term accommodations.
+        </>
     },
     {
       image:
-        "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1400&q=80",
-      title: "Thoughtful property care",
+        "https://www.marthastewart.com/thmb/5HuP0UkW3b9A_TiGDPGt-fx4KoE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/2021-11-17-collected_belmont-33-Edit-df9880ffa9734b158f7436777ba804f0.jpg",
+      title: "Vision.",
       text:
-        "Professional cleaning, regular oversight, and presentation standards that help the home stay guest ready and well maintained.",
-    },
-    {
-      image:
-        "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=80",
-      title: "Protection and peace of mind",
-      text:
-        "Clear standards, smart safeguards, and a hospitality model built to protect both the guest experience and the asset itself.",
+        "Whether you’re looking to optimize a single home or expand your real estate portfolio, we transform properties into high-performing, luxury retreats—effortlessly. Looking ahead, we strive to redefine luxury living by creating a global network of stylish, high-yield retreats that deliver unparalleled value to both owners and guests.",
     },
   ];
 
-  return (
+    return (
     <section
-      className="relative overflow-hidden px-6 py-16 md:px-10 md:py-24"
+      className="relative overflow-hidden px-6 py-12 md:px-10 md:py-16"
       style={{ backgroundColor: colors.sand }}
     >
-      <div className="mx-auto max-w-7xl">
-        <SectionHeading
-          eyebrow="Own a property?"
-          title="Let it work for you."
-          body="Alvara Maison is built to help owners create a more effortless income experience through consistent execution, stronger care, and a more polished standard of hospitality."
-        />
+      <div className="mx-auto max-w-6xl">
+        <motion.div
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-10 text-center"
+        >
+          <p
+            className="mb-4 text-sm md:text-base uppercase tracking-[0.35em]"
+            style={{ color: colors.muted }}
+          >
+            Own a property?
+          </p>
 
-        <div className="grid gap-8 md:grid-cols-3">
-          {steps.map((step) => (
-            <div key={step.title}>
-              <img
-                src={step.image}
-                alt={step.title}
-                className="h-[320px] w-full object-cover md:h-[360px]"
-              />
-              <div className="pt-5">
-                <h3
-                  className="text-2xl leading-tight"
-                  style={{ color: colors.text, fontFamily: "Georgia, serif" }}
+          <h2
+            className="text-5xl leading-tight md:text-7xl"
+            style={{ color: colors.text, fontFamily: "Georgia, serif" }}
+          >
+            Let it work for you.
+          </h2>
+
+          <p
+            className="mt-4 mx-auto max-w-3xl text-base leading-8 md:text-lg"
+            style={{ color: colors.muted }}
+          >
+            Alvara Maison is built to help owners create a more effortless income
+            experience through consistent execution, stronger care, and a more
+            polished standard of hospitality.
+          </p>
+        </motion.div>
+
+        <div className="mt-16 grid gap-16">
+          {steps.map((step, index) => {
+            const isMiddle = index === 1;
+            const imageFromLeft = !isMiddle;
+
+            return (
+              <div
+                key={step.title}
+                className="grid items-center gap-10 md:grid-cols-2"
+              >
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    x: imageFromLeft ? -70 : 70,
+                  }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{
+                    duration: 0.9,
+                    delay: 0.08,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className={isMiddle ? "md:order-2" : ""}
                 >
-                  {step.title}
-                </h3>
-                <p
-                  className="mt-3 text-base leading-7"
-                  style={{ color: colors.muted }}
+                  <img
+                    src={step.image}
+                    alt={step.title}
+                    className="h-[340px] w-full object-cover shadow-xl"
+                  />
+                </motion.div>
+
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    x: imageFromLeft ? 40 : -40,
+                  }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{
+                    duration: 0.8,
+                    delay: 0.18,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className={isMiddle ? "md:order-1" : ""}
                 >
-                  {step.text}
-                </p>
+                  <h3
+                    className="text-3xl leading-tight"
+                    style={{ color: colors.text, fontFamily: "Georgia, serif" }}
+                  >
+                    {step.title}
+                  </h3>
+
+                  <p
+                    className="mt-4 text-base leading-7"
+                    style={{ color: colors.muted }}
+                  >
+                    {step.text}
+                  </p>
+                </motion.div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
@@ -388,11 +507,12 @@ function SuccessSection() {
 function PortfolioSection() {
   return (
     <section style={{ backgroundColor: colors.cream }}>
-      <section
-        className="relative overflow-hidden bg-cover bg-center bg-no-repeat px-6 py-20 md:px-10 md:py-28"
-        style={{
-backgroundImage: `linear-gradient(rgba(20, 17, 14, 0.38), rgba(20, 17, 14, 0.38)), url(${contactHeroImage})`,        }}
-      >
+     <section
+  className="relative overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed px-6 py-20 md:px-10 md:py-28"
+  style={{
+    backgroundImage: `linear-gradient(rgba(20, 17, 14, 0.38), rgba(20, 17, 14, 0.38)), url(${portfolioHeroImage})`,
+  }}
+>
         <div className="mx-auto max-w-7xl">
           <FadeUp>
             <div className="max-w-4xl">
@@ -401,9 +521,9 @@ backgroundImage: `linear-gradient(rgba(20, 17, 14, 0.38), rgba(20, 17, 14, 0.38)
               </p>
               <h2
                 className="text-4xl leading-tight text-white md:text-6xl"
-                style={{ fontFamily: "Georgia, serif" }}
+                style={{ fontFamily: "'Playfair Display', serif" }}
               >
-                Our portfolio
+                Our Portfolio
               </h2>
               <p className="mt-6 max-w-3xl text-base leading-8 text-white/85 md:text-lg">
                 Each property in our portfolio is carefully selected, beautifully presented, and maintained to create strong guest appeal while supporting long term owner performance.
@@ -417,11 +537,11 @@ backgroundImage: `linear-gradient(rgba(20, 17, 14, 0.38), rgba(20, 17, 14, 0.38)
       </section>
 
 <section
-  className="px-8 py-10 md:px-12 md:py-12 lg:px-27"
+  className="px-8 py-10 md:px-12 md:py-15 lg:px-17"
   style={{ backgroundColor: colors.cream }}
 >
   <div className="w-full">
-    <div className="grid grid-cols-1 gap-9 md:grid-cols-3">
+    <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
       {portfolioImages.map((src, index) => (
         <img
           key={src + index}
@@ -440,14 +560,14 @@ backgroundImage: `linear-gradient(rgba(20, 17, 14, 0.38), rgba(20, 17, 14, 0.38)
 function ClosingCta() {
   return (
     <section
-      className="relative overflow-hidden bg-cover bg-center bg-no-repeat px-6 py-16 md:px-10 md:py-24"
+      className="relative overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed px-6 py-16 md:px-10 md:py-24"
       style={{ backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${contactHeroImage})` }}
     >
       <div className="mx-auto max-w-7xl text-center">
         <SectionHeading
           eyebrow="Get in touch"
-          title="Let us help you build a more refined and more effortless property experience."
-          body="Reach out to discuss your property, ownership goals, or how Alvara Maison can create a cleaner and more elevated operating experience."
+          title="Let's Talk Success"
+          body="Ready to turn your property into a high-earning asset? At Alvara Maison, we handle everything so you don’t have to. Get in touch today and discover how we can maximize your returns with zero hassle."
           light
           centered
         />
@@ -470,6 +590,7 @@ function ScrollToTopButton() {
     const onScroll = () => {
       setVisible(window.scrollY > window.innerHeight * 0.9);
     };
+
     onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
@@ -478,14 +599,15 @@ function ScrollToTopButton() {
   if (!visible) return null;
 
   return (
-    <a
-      href="#"
+    <button
+      type="button"
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       className="fixed bottom-6 right-6 z-50 flex h-9 w-9 cursor-pointer items-center justify-center shadow-lg"
       style={{ backgroundColor: colors.warmButton, color: colors.warmButtonText }}
       aria-label="Back to top"
     >
       ↑
-    </a>
+    </button>
   );
 }
 
@@ -504,10 +626,18 @@ function HomePage() {
 function AboutPage() {
   return (
     <>
-      <section className="relative min-h-[55vh] bg-cover bg-center bg-no-repeat px-6 py-8 md:px-10" style={{ backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${heroImage})` }}>
+<section
+  className="relative min-h-[62vh] bg-cover bg-center bg-no-repeat bg-fixed px-6 py-8 md:px-10"
+  style={{
+    backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${heroImage})`,
+  }}
+>
         <SiteNav light />
         <div className="mx-auto max-w-7xl pt-28 md:pt-36">
-          <h1 className="text-5xl leading-tight text-white md:text-7xl" style={{ fontFamily: "Georgia, serif" }}>
+          <h1
+            className="text-5xl leading-tight text-white md:text-7xl"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
             About us
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-8 text-white/85 md:text-lg">
@@ -515,7 +645,104 @@ function AboutPage() {
           </p>
         </div>
       </section>
-      <AboutSection />
+
+<section
+  className="px-6 py-16 md:px-10 md:py-24"
+  style={{ backgroundColor: colors.cream }}
+>
+  <div className="mx-auto max-w-7xl">
+
+    {/* centered heading */}
+    <FadeUp>
+      <div className="mx-auto mb-14 max-w-5xl text-center">
+        <p
+          className="mb-3 text-sm md:text-base uppercase tracking-[0.28em]"
+          style={{ color: colors.muted }}
+        >
+          Our approach
+        </p>
+
+        <h2
+          className="text-4xl leading-wide tracking-wide md:text-4xl"
+          style={{ color: colors.text, fontFamily: "'Playfair Display', serif" }}
+        >
+          Committed to Exceptional Service and Lasting Quality
+        </h2>
+      </div>
+    </FadeUp>
+
+    {/* image left / text right */}
+    <div className="grid items-center gap-10 md:grid-cols-2">
+
+      <FadeUp>
+        <img
+          src="https://www.somfy.com.au/common/img/library/photo-1600585152220-90363fe7e115.png"
+          alt="Luxury interior"
+          className="h-[420px] w-full object-cover shadow-xl md:h-[500px]"
+        />
+      </FadeUp>
+
+      <FadeUp delay={0.08}>
+        <div>
+          <p
+            className="text-base leading-8 md:text-lg"
+            style={{ color: colors.muted }}
+          >
+          Your property is more than just real estate. It is an investment that deserves thoughtful care and professional attention. At Alvara Maison, our focus is maximizing your rental income while protecting the long term quality of your home, creating a hands off ownership experience with dependable, consistent returns.
+          </p>
+
+          <p
+            className="mt-12 text-base leading-8 md:text-lg"
+            style={{ color: colors.muted }}
+          >
+           We create elevated stays tailored to business travelers, relocating professionals, and guests who value thoughtful design and comfort. Each property is professionally managed, carefully furnished, and meticulously maintained to deliver a refined guest experience while supporting strong and consistent performance for owners.
+          </p>
+        </div>
+      </FadeUp>
+
+    </div>
+  </div>
+</section>
+
+<section
+  className="px-6 py-20 md:px-10 md:py-15"
+  style={{ backgroundColor: colors.cream }}
+>
+  <div className="mx-auto max-w-7xl">
+
+    <div
+      className="grid items-center gap-10 md:grid-cols-2 pt-7"
+      style={{ borderTop: `1px solid ${colors.stone}` }}
+    >
+
+      <FadeUp>
+        <h3
+          className="text-3xl leading-tight md:text-4xl"
+          style={{ color: colors.text, fontFamily: "'Playfair Display', serif" }}
+        >
+          Want to Maximize Your Property’s Potential? Let's Talk!
+        </h3>
+      </FadeUp>
+
+<FadeUp delay={0.08}>
+  <div className="flex flex-col gap-6 md:items-end">
+    <a
+      href="#contact"
+      className="rounded-full px-8 py-3 text-sm uppercase tracking-[0.18em]"
+      style={{
+        backgroundColor: colors.warmButton,
+        color: colors.warmButtonText,
+      }}
+    >
+      Contact us
+    </a>
+  </div>
+</FadeUp>
+
+    </div>
+
+  </div>
+</section>
     </>
   );
 }
@@ -566,7 +793,7 @@ ${values.message}`
     <form className="p-0" onSubmit={handleSubmit} noValidate>
       <div className="grid gap-5">
         {[
-          ["name", "Name", "text", "Your name"],
+          ["name", "Name", "text", "Full name"],
           ["email", "Email", "email", "Your email"],
           ["subject", "Subject", "text", "How can we help"],
         ].map(([field, label, type, placeholder]) => (
@@ -581,7 +808,7 @@ ${values.message}`
               onChange={(e) => onChange(field, e.target.value)}
               required
               aria-invalid={!!errors[field]}
-              className="w-full rounded-xl border px-4 py-3 outline-none"
+              className="w-full border px-4 py-3 outline-none transition focus:ring-2 focus:ring-[#b8946a]"
               style={inputStyle(field)}
             />
             {errors[field] ? <p className="mt-2 text-sm" style={{ color: colors.error }}>{errors[field]}</p> : null}
@@ -599,7 +826,7 @@ ${values.message}`
             onChange={(e) => onChange("message", e.target.value)}
             required
             aria-invalid={!!errors.message}
-            className="w-full rounded-2xl border px-4 py-3 outline-none"
+            className="w-full min-h-[160px] resize-y border px-4 py-3 outline-none transition focus:ring-2 focus:ring-[#b8946a]"
             style={inputStyle("message")}
           />
           {errors.message ? <p className="mt-2 text-sm" style={{ color: colors.error }}>{errors.message}</p> : null}
@@ -617,30 +844,30 @@ ${values.message}`
 function ContactPage() {
   return (
     <>
-      <section className="relative min-h-[62vh] bg-cover bg-center bg-no-repeat px-6 py-8 md:px-10" style={{ backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${contactHeroImage})` }}>
+      <section className="relative min-h-[62vh] bg-cover bg-center bg-no-repeat bg-fixed px-6 py-8 md:px-10" style={{ backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${contactHeroImage})` }}>
         <SiteNav light />
-        <div className="mx-auto max-w-7xl pt-28 md:pt-36">
-          <SectionHeading
-            eyebrow="Contact us"
-            title="Let us talk about your property."
-            body="A refined, direct way to start the conversation."
-            light
-          />
+        <div className="mx-auto max-w-7xl pt-28 md:pt-45">
+<h1
+  className="text-5xl leading-tight text-white md:text-7xl"
+  style={{ fontFamily: "'Playfair Display', serif" }}
+>
+  Contact us
+</h1>
         </div>
       </section>
 
       <section id="contact" className="px-6 py-16 md:px-10 md:py-24" style={{ backgroundColor: colors.background }}>
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-12 md:grid-cols-[1.08fr_0.92fr]">
+          <div className="grid gap-20 md:grid-cols-[1.08fr_0.92fr]">
             <FadeUp>
               <div>
                 <h2 className="text-4xl leading-tight md:text-6xl" style={{ color: colors.text, fontFamily: "Georgia, serif" }}>
-                  Contact us
+                  Send Us a Message
                 </h2>
                 <p className="mt-6 text-base leading-8 md:text-lg" style={{ color: colors.muted }}>
                   Have questions or thinking about your next move? We’re here to guide you. Whether you’re looking to learn more about our services or discover how to maximize your property’s potential, our team is ready to provide the support and expertise you need. Property ownership should be effortless and rewarding, and we’re committed to helping you achieve just that.
                 </p>
-                <p className="mt-5 text-base leading-8" style={{ color: colors.muted }}>
+                <p className="mt-6 text-base leading-8 md:text-lg" style={{ color: colors.muted }}>
                   If you’re ready to take the next step, we’d love to connect. Fill out the form below or reach out to us directly—we’re here to answer your questions, discuss your goals, and help you make the most of your property.
                 </p>
               </div>
@@ -673,7 +900,7 @@ export default function Page() {
   }, []);
 
   return (
-    <main className="min-h-screen" style={{ backgroundColor: colors.background, color: colors.text }}>
+    <main className="min-h-screen scroll-smooth" style={{ backgroundColor: colors.background, color: colors.text }}>
       {page === "home" ? <HomePage /> : page === "about" ? <AboutPage /> : <ContactPage />}
 
       <footer className="px-6 py-8 text-center md:px-10" style={{ backgroundColor: colors.background }}>
