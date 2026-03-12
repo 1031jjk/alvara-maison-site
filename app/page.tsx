@@ -110,7 +110,7 @@ function SiteNav({ light = true }: { light?: boolean }) {
     className="h-50 md:h-20 w-auto brightness-0 invert"
   />
 </a>
-        <div className="flex items-center gap-4 text-xs uppercase tracking-[0.18em] md:gap-8 md:text-sm">
+        <div className="flex items-center gap-4 text-xs uppercase tracking-[0.18em] md:gap-8 md:text-sm mt-4 md:mt-4">
           <a href="#" className={textClass}>Home</a>
           <a href="#about" className={textClass}>About us</a>
           <a
