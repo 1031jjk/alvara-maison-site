@@ -41,7 +41,7 @@ const aboutImages = [
 const portfolioImages = [
   "https://wwd.com/wp-content/uploads/2023/08/GettyImages-1357529184-e1690979672961.jpg?w=1000&h=563&crop=1",
   "https://www.atomic-ranch.com/wp-content/uploads/2024/01/DSC07799-800x533.jpg",
-    "https://cdn.mos.cms.futurecdn.net/9DFRUYnY3Eu7nGrgB8hygE.jpg",
+  "https://cdn.mos.cms.futurecdn.net/9DFRUYnY3Eu7nGrgB8hygE.jpg",
   "https://www.thespruce.com/thmb/eNEDy0ib4ReAvWikahyPQcWSQ4A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Screenshot2025-12-24at12.17.14PM-aef15f6399324fd59d3139f624d2e5b6.png",
   "https://images.ctfassets.net/wlzmdirin2hy/4uv2NDkpa2YxdnUyJG72BI/1562a9496a6a0c02f5729655b0a146d5/lx_california79_hom_kalman_03",
   "https://www.mountainliving.com/content/uploads/2024/12/u/p/ml-winter-ea-photo-2-scaled.jpg",
@@ -443,7 +443,7 @@ function SuccessSection() {
   const steps = [
     {
       image:
-        "https://cdn.decorilla.com/online-decorating/wp-content/uploads/2022/07/Modern-contemporary-interior-design-living-rooms-2-scaled.jpeg?width=900",
+        "https://windsorlife.com/wp-content/uploads/2025/11/delmorephotography_s_wlf_5-1024x683.jpg",
       title: "Mission.",
       text:
       <>
@@ -470,7 +470,7 @@ function SuccessSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-10"
+          className="mb-10 text-center"
         >
           <p
             className="mb-0 text-sm md:text-base uppercase tracking-[0.35em]"
@@ -542,18 +542,22 @@ function SuccessSection() {
                   className={isMiddle ? "md:order-1" : ""}
                 >
                   <h3
-  className="text-3xl leading-tight text-center"
+  className={`text-3xl leading-tight text-center ${
+    index === 0 ? "md:text-left" : "md:text-right"
+  }`}
   style={{ color: colors.text, fontFamily: "Georgia, serif" }}
 >
   {step.title}
 </h3>
 
                   <p
-                    className="mt-4 text-base leading-7"
-                    style={{ color: colors.muted }}
-                  >
-                    {step.text}
-                  </p>
+  className={`mt-4 text-base leading-7 text-center ${
+    index === 0 ? "md:text-left" : "md:text-right"
+  }`}
+  style={{ color: colors.muted }}
+>
+  {step.text}
+</p>
                 </motion.div>
               </div>
             );
