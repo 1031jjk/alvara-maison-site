@@ -593,8 +593,8 @@ function PortfolioSection() {
   className="relative overflow-hidden bg-cover bg-[center_30%] md:bg-center bg-no-repeat md:bg-fixed px-6 py-20 md:px-10 md:py-28"
 style={{
   backgroundImage: `
-    linear-gradient(rgba(43, 38, 20, 0.35), rgba(245,240,232,0.35)),
-    linear-gradient(rgba(52, 27, 3, 0.35), rgba(20,17,14,0.35)),
+    linear-gradient(rgba(0, 0, 0, 0.35), rgba(245,240,232,0.35)),
+    linear-gradient(rgba(128, 63, 3, 0.35), rgba(20,17,14,0.35)),
     url(${portfolioHeroImage})
   `
 }}
