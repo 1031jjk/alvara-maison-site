@@ -844,43 +844,53 @@ function AboutPage() {
   );
 }
 
-function ContactForm() {
-  const [values, setValues] = useState({ name: "", email: "", subject: "", message: "" });
+function ContactForm({ setSuccess }: { setSuccess: (value: boolean) => void }) {
+  const [values, setValues] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
-  const [status, setStatus] = useState("");
 
   const validate = () => {
     const nextErrors: { [key: string]: string } = {};
+
     if (!values.name.trim()) nextErrors.name = "This field is required.";
     if (!values.email.trim()) nextErrors.email = "This field is required.";
     if (!values.subject.trim()) nextErrors.subject = "This field is required.";
     if (!values.message.trim()) nextErrors.message = "This field is required.";
+
     setErrors(nextErrors);
     return Object.keys(nextErrors).length === 0;
   };
 
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-  if (!validate()) return;
+    if (!validate()) return;
 
-  const response = await fetch("/api/contact", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(values)
-  });
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(values)
+    });
 
-  const result = await response.json();
+    const result = await response.json();
 
-  if (result.success) {
-    setStatus("Message sent successfully.");
-    setValues({ name: "", email: "", subject: "", message: "" });
-  } else {
-    setStatus("Something went wrong. Please try again.");
-  }
-};
+    if (result.success) {
+      setSuccess(true);
+      setValues({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    }
+  };
 
   const inputStyle = (field: string) => ({
     backgroundColor: "#ffffff",
@@ -895,57 +905,89 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
   return (
     <form className="p-0" onSubmit={handleSubmit} noValidate>
+
       <div className="grid gap-5">
+
         {[
           ["name", "Name", "text", "Full name"],
           ["email", "Email", "email", "Your email"],
-          ["subject", "Subject", "text", "How can we help"],
+          ["subject", "Subject", "text", "How can we help?"],
         ].map(([field, label, type, placeholder]) => (
+
           <div key={field}>
-            <label className="mb-2 block text-xs uppercase tracking-[0.22em]" style={{ color: colors.muted }}>
+
+            <label
+              className="mb-2 block text-xs uppercase tracking-[0.22em]"
+              style={{ color: colors.muted }}
+            >
               {label} <span style={{ color: colors.error }}>*</span>
             </label>
+
             <input
               type={type}
               placeholder={placeholder}
               value={(values as Record<string, string>)[field]}
               onChange={(e) => onChange(field, e.target.value)}
-              required
-              aria-invalid={!!errors[field]}
               className="w-full border px-4 py-3 outline-none transition focus:ring-2 focus:ring-[#b8946a]"
               style={inputStyle(field)}
             />
-            {errors[field] ? <p className="mt-2 text-sm" style={{ color: colors.error }}>{errors[field]}</p> : null}
+
+            {errors[field] && (
+              <p className="mt-2 text-sm" style={{ color: colors.error }}>
+                {errors[field]}
+              </p>
+            )}
+
           </div>
+
         ))}
 
         <div>
-          <label className="mb-2 block text-xs uppercase tracking-[0.22em]" style={{ color: colors.muted }}>
+
+          <label
+            className="mb-2 block text-xs uppercase tracking-[0.22em]"
+            style={{ color: colors.muted }}
+          >
             Message <span style={{ color: colors.error }}>*</span>
           </label>
-          <textarea
-            placeholder="Tell us about your goals"
-            rows={6}
-            value={values.message}
-            onChange={(e) => onChange("message", e.target.value)}
-            required
-            aria-invalid={!!errors.message}
-            className="w-full min-h-[160px] resize-y border px-4 py-3 outline-none transition focus:ring-2 focus:ring-[#b8946a]"
-            style={inputStyle("message")}
-          />
-          {errors.message ? <p className="mt-2 text-sm" style={{ color: colors.error }}>{errors.message}</p> : null}
+
+<textarea
+  placeholder="Message"
+  rows={6}
+  value={values.message}
+  onChange={(e) => onChange("message", e.target.value)}
+  className="w-full min-h-[160px] resize-y border px-4 py-3 outline-none transition focus:ring-2 focus:ring-[#b8946a]"
+  style={inputStyle("message")}
+/>
+
+          {errors.message && (
+            <p className="mt-2 text-sm" style={{ color: colors.error }}>
+              {errors.message}
+            </p>
+          )}
+
         </div>
 
-        <button type="submit" className="cursor-pointer rounded-full px-6 py-3 text-sm uppercase tracking-[0.18em]" style={{ backgroundColor: colors.warmButton, color: colors.warmButtonText }}>
+        <button
+          type="submit"
+          className="cursor-pointer rounded-full px-6 py-3 text-sm uppercase tracking-[0.18em]"
+          style={{
+            backgroundColor: colors.warmButton,
+            color: colors.warmButtonText,
+          }}
+        >
           Send message
         </button>
-        {status ? <p className="text-sm" style={{ color: colors.muted }}>{status}</p> : null}
+
       </div>
+
     </form>
   );
 }
 
 function ContactPage() {
+  const [success, setSuccess] = useState(false);
+
   return (
     <>
 <section
@@ -955,38 +997,94 @@ function ContactPage() {
   <SiteNav light />
 
   <div className="mx-auto max-w-7xl pt-28 md:pt-45 text-center">
+
     <h1
       className="text-5xl leading-tight text-white md:text-7xl"
       style={{ fontFamily: "'Playfair Display', serif" }}
     >
       Contact us
     </h1>
+
   </div>
 </section>
 
-      <section id="contact" className="px-6 py-16 md:px-10 md:py-24" style={{ backgroundColor: colors.background }}>
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-20 md:grid-cols-[1.08fr_0.92fr]">
-            <FadeUp>
-              <div>
-                <h2 className="text-4xl leading-tight md:text-6xl" style={{ color: colors.text, fontFamily: "Georgia, serif" }}>
-                  Send Us a Message
-                </h2>
-                <p className="mt-6 text-base leading-8 md:text-lg" style={{ color: colors.muted }}>
-                  Have questions or thinking about your next move? We’re here to guide you. Whether you’re looking to learn more about our services or discover how to maximize your property’s potential, our team is ready to provide the support and expertise you need. Property ownership should be effortless and rewarding, and we’re committed to helping you achieve just that.
-                </p>
-                <p className="mt-6 text-base leading-8 md:text-lg" style={{ color: colors.muted }}>
-                  If you’re ready to take the next step, we’d love to connect. Fill out the form below or reach out to us directly—we’re here to answer your questions, discuss your goals, and help you make the most of your property.
-                </p>
-              </div>
-            </FadeUp>
+<section
+  id="contact"
+  className="px-6 py-16 md:px-10 md:py-24"
+  style={{ backgroundColor: colors.background }}
+>
+  <div className="mx-auto max-w-7xl">
 
-            <FadeUp delay={0.08}>
-              <ContactForm />
-            </FadeUp>
+{success ? (
+
+<motion.div
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+  className="flex flex-col items-center justify-center py-24 text-center"
+>
+
+  <h2
+    className="text-5xl mb-6"
+    style={{ color: colors.text, fontFamily: "Georgia, serif" }}
+  >
+    Message Sent!
+  </h2>
+
+  <p
+    className="max-w-xl text-base leading-8 md:text-lg"
+    style={{ color: colors.muted }}
+  >
+    Thank you for reaching out. Our team will review your message and get
+    back to you shortly.
+  </p>
+
+</motion.div>
+
+) : (
+
+      <div className="grid gap-20 md:grid-cols-[1.08fr_0.92fr]">
+
+        <FadeUp>
+          <div>
+
+            <h2
+              className="text-4xl leading-tight md:text-6xl"
+              style={{ color: colors.text, fontFamily: "Georgia, serif" }}
+            >
+              Send Us a Message
+            </h2>
+
+            <p
+              className="mt-6 text-base leading-8 md:text-lg"
+              style={{ color: colors.muted }}
+            >
+              Have questions or thinking about your next move? We’re here to guide you.
+              Whether you’re looking to learn more about our services or discover
+              how to maximize your property’s potential, our team is ready to help.
+            </p>
+
+            <p
+              className="mt-6 text-base leading-8 md:text-lg"
+              style={{ color: colors.muted }}
+            >
+              If you’re ready to take the next step, we’d love to connect. Fill out
+              the form and our team will respond shortly.
+            </p>
+
           </div>
-        </div>
-      </section>
+        </FadeUp>
+
+        <FadeUp delay={0.08}>
+          <ContactForm setSuccess={setSuccess} />
+        </FadeUp>
+
+      </div>
+
+    )}
+
+  </div>
+</section>
     </>
   );
 }
