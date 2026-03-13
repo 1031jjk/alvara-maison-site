@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const colors = {
   background: "#f5f0e8",
@@ -163,46 +163,52 @@ function SiteNav({ light = true }: { light?: boolean }) {
       </div>
 
       {/* Mobile dropdown */}
-      {menuOpen && (
-        <div
-          className="absolute left-0 top-full w-full md:hidden"
-          style={{ backgroundColor: colors.sand }}
-        >
+      <AnimatePresence>
+{menuOpen && (
+  <motion.div
+    initial={{ height: 0, opacity: 0 }}
+    animate={{ height: "auto", opacity: 1 }}
+    exit={{ height: 0, opacity: 0 }}
+    transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+    className="absolute left-0 top-full w-full overflow-hidden md:hidden"
+    style={{ backgroundColor: colors.sand }}
+  >
 
-          <div className="flex flex-col items-center py-8 gap-6 uppercase tracking-[0.18em] text-sm">
+    <div className="flex flex-col items-center py-8 gap-6 uppercase tracking-[0.18em] text-sm">
 
-            <a
-              href="#"
-              style={{ color: colors.text }}
-              onClick={() => setMenuOpen(false)}
-            >
-              Home
-            </a>
+      <a
+        href="#"
+        style={{ color: colors.text }}
+        onClick={() => setMenuOpen(false)}
+      >
+        Home
+      </a>
 
-            <a
-              href="#about"
-              style={{ color: colors.text }}
-              onClick={() => setMenuOpen(false)}
-            >
-              About us
-            </a>
+      <a
+        href="#about"
+        style={{ color: colors.text }}
+        onClick={() => setMenuOpen(false)}
+      >
+        About us
+      </a>
 
-            <a
-              href="#contact"
-              className="rounded-full px-6 py-2"
-              style={{
-                backgroundColor: colors.warmButton,
-                color: colors.warmButtonText,
-              }}
-              onClick={() => setMenuOpen(false)}
-            >
-              Contact us
-            </a>
+      <a
+        href="#contact"
+        className="rounded-full px-6 py-2 transform transition duration-300 hover:scale-[1.02] active:scale-100"
+        style={{
+          backgroundColor: colors.warmButton,
+          color: colors.warmButtonText,
+        }}
+        onClick={() => setMenuOpen(false)}
+      >
+        Contact us
+      </a>
 
-          </div>
+    </div>
 
-        </div>
-      )}
+  </motion.div>
+)}
+</AnimatePresence>
     </div>
   );
 }
@@ -652,7 +658,8 @@ function ClosingCta() {
           centered
         />
 
-<button
+<motion.button
+  whileTap={{ scale: 0.98 }}
   onClick={() => {
     window.location.hash = "contact";
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -661,7 +668,7 @@ function ClosingCta() {
   style={{ backgroundColor: colors.warmButton, color: colors.warmButtonText }}
 >
   Get in touch
-</button>
+</motion.button>
 
       </div>
     </section>
@@ -973,7 +980,8 @@ function ContactForm({ setSuccess }: { setSuccess: (value: boolean) => void }) {
 
         </div>
 
-        <button
+        <motion.button
+  whileTap={{ scale: 0.98 }}
   type="submit"
   className="cursor-pointer rounded-full px-6 py-3 text-sm uppercase tracking-[0.18em] transform transition duration-300 hover:scale-[1.02] active:scale-100"
           style={{
@@ -982,7 +990,7 @@ function ContactForm({ setSuccess }: { setSuccess: (value: boolean) => void }) {
           }}
         >
           Send message
-        </button>
+        </motion.button>
 
       </div>
 
