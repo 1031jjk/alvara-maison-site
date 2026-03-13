@@ -496,7 +496,7 @@ function SuccessSection() {
           </p>
         </motion.div>
 
-        <div className="mt-16 grid gap-16">
+        <div className="mt-20 grid gap-24">
           {steps.map((step, index) => {
             const isMiddle = index === 1;
             const imageFromLeft = !isMiddle;
@@ -507,23 +507,23 @@ function SuccessSection() {
                 className="grid items-center gap-10 md:grid-cols-2"
               >
                 <motion.div
-                  initial={{
-                    opacity: 0,
-                    x: imageFromLeft ? -70 : 70,
-                  }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{
-                    duration: 0.9,
-                    delay: 0.08,
-                    ease: [0.22, 1, 0.36, 1],
-                  }}
-                  className={isMiddle ? "md:order-2" : ""}
-                >
+  initial={{
+    opacity: 0,
+    x: index === 0 ? -80 : 80
+  }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{
+    duration: 0.9,
+    delay: 0.08,
+    ease: [0.22, 1, 0.36, 1],
+  }}
+  className={isMiddle ? "md:order-2" : ""}
+>
                   <img
                     src={step.image}
                     alt={step.title}
-                    className="h-[340px] w-full object-cover shadow-xl"
+                    className="w-full aspect-[16/9] object-cover rounded-xl shadow-lg md:h-[380px] md:aspect-auto"
                   />
                 </motion.div>
 
@@ -597,7 +597,7 @@ style={{
                 Each property in our portfolio is carefully selected, beautifully presented, and maintained to create strong guest appeal while supporting long term owner performance.
               </p>
               <p className="mt-5 max-w-3xl text-base leading-8 text-white/82">
-                From elevated urban stays to refined residential homes, every property is positioned to feel polished, memorable, and highly marketable while preserving a calm premium brand standard.
+                From elevated urban stays to refined residential homes, every property is positioned to feel polished, memorable, and highly marketable while preserving a calm, premium brand standard.
               </p>
             </div>
           </FadeUp>
@@ -615,7 +615,7 @@ style={{
           key={src + index}
           src={src}
           alt={`Portfolio ${index + 1}`}
-          className="aspect-square w-full object-cover"
+          className="aspect-square rounded-xl w-full object-cover"
         />
       ))}
     </div>
