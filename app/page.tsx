@@ -226,33 +226,40 @@ function HeroSection() {
 
       <div className="relative mx-auto w-full max-w-7xl">
 
-        <FadeUp>
-          <div className="mx-auto max-w-3xl text-center">
+       <div className="mx-auto max-w-5xl text-center">
 
-            <p className="mb-3 text-xs uppercase tracking-[0.60em] text-white/80">
-              Invest Smart with Alvara Maison
-            </p>
+  <FadeUp delay={0}>
+    <p className="mb-4 text-xs uppercase tracking-[0.45em] text-white/80">
+      Invest Smart with <br className="md:hidden" />
+      Alvara Maison
+    </p>
+  </FadeUp>
 
-            <h1
-              className="text-4xl leading-tight text-white md:text-7xl"
-              style={{ fontFamily: "'Playfair Display', serif" }}
-            >
-              Effortless Income,
-            </h1>
+  <FadeUp delay={0.15}>
+    <h1
+      className="text-5xl leading-tight text-white md:text-7xl"
+      style={{ fontFamily: "'Playfair Display', serif" }}
+    >
+      Effortless Income,
+    </h1>
+  </FadeUp>
 
-            <h1
-              className="text-4xl leading-tight text-white md:text-7xl"
-              style={{ fontFamily: "'Playfair Display', serif" }}
-            >
-              Expert Care
-            </h1>
+  <FadeUp delay={0.3}>
+    <h1
+      className="text-5xl leading-tight text-white md:text-7xl"
+      style={{ fontFamily: "'Playfair Display', serif" }}
+    >
+      Expert Care
+    </h1>
+  </FadeUp>
 
-            <p className="mt-6 mx-auto max-w-3xl text-base leading-8 text-white/85 md:text-lg">
-              Maximize returns, minimize stress. We transform properties into profitable, well-maintained luxury stays promising guaranteed income and a stress-free ownership experience.
-            </p>
+  <FadeUp delay={0.45}>
+    <p className="mt-6 mx-auto max-w-3xl text-base font light leading-8 text-white/85 md:text-lg">
+      Maximize returns, minimize stress. We transform properties into profitable, well-maintained luxury stays promising guaranteed income and a stress-free ownership experience.
+    </p>
+  </FadeUp>
 
-          </div>
-        </FadeUp>
+</div>
 
       </div>
     </section>
@@ -753,7 +760,7 @@ function AboutPage() {
         <img
           src="https://www.somfy.com.au/common/img/library/photo-1600585152220-90363fe7e115.png"
           alt="Luxury interior"
-          className="h-[420px] w-full object-cover shadow-xl md:h-[500px]"
+          className="w-full aspect-[16/9] object-cover rounded-xl shadow-xl md:h-[500px] md:aspect-auto"
         />
       </FadeUp>
 
