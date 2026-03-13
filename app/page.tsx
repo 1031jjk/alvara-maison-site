@@ -227,7 +227,7 @@ function HeroSection() {
 
       {/* Mobile background */}
       <div
-        className="absolute inset-0 md:hidden bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 md:hidden bg-cover bg-[center_30%] md:bg-center bg-no-repeat"
         style={{
           backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${heroImageMobile})`,
         }}
@@ -590,7 +590,7 @@ function PortfolioSection() {
   return (
     <section style={{ backgroundColor: colors.cream }}>
      <section
-  className="relative overflow-hidden bg-cover bg-center bg-no-repeat md:bg-fixed px-6 py-20 md:px-10 md:py-28"
+  className="relative overflow-hidden bg-cover bg-[center_30%] md:bg-center bg-no-repeat md:bg-fixed px-6 py-20 md:px-10 md:py-28"
 style={{
   backgroundImage: `
     linear-gradient(rgba(43, 38, 20, 0.35), rgba(245,240,232,0.35)),
@@ -645,11 +645,18 @@ style={{
 
 function ClosingCta() {
   return (
-    <section
-      className="relative overflow-hidden bg-cover bg-center bg-no-repeat md:bg-fixed px-6 py-16 md:px-10 md:py-24"
-      style={{ backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${ctaImage})` }}
-    >
-      <div className="mx-auto max-w-7xl text-center">
+    <section className="relative overflow-hidden px-6 py-16 md:px-10 md:py-24">
+
+      {/* background layer */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat md:bg-fixed"
+        style={{
+          backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${ctaImage})`
+        }}
+      />
+
+      <div className="relative mx-auto max-w-7xl text-center">
+
         <SectionHeading
           eyebrow="Get in touch"
           title="Let's Talk Success"
@@ -658,19 +665,23 @@ function ClosingCta() {
           centered
         />
 
-<motion.button
-  whileTap={{ scale: 0.98 }}
-  onClick={() => {
-    window.location.hash = "contact";
-    window.scrollTo({ top: 0, behavior: "instant" });
-  }}
-  className="inline-block cursor-pointer rounded-full px-7 py-3 text-sm uppercase tracking-[0.18em] transform transition duration-300 hover:scale-105"
-  style={{ backgroundColor: colors.warmButton, color: colors.warmButtonText }}
->
-  Get in touch
-</motion.button>
+        <motion.button
+          whileTap={{ scale: 0.98 }}
+          onClick={() => {
+            window.location.hash = "contact";
+            window.scrollTo({ top: 0, behavior: "instant" });
+          }}
+          className="cursor-pointer inline-block rounded-full px-7 py-3 text-sm uppercase tracking-[0.18em] transform transition duration-300 hover:scale-[1.02] active:scale-100"
+          style={{
+            backgroundColor: colors.warmButton,
+            color: colors.warmButtonText
+          }}
+        >
+          Get in touch
+        </motion.button>
 
       </div>
+
     </section>
   );
 }
@@ -719,7 +730,7 @@ function AboutPage() {
   return (
     <>
 <section
-  className="relative min-h-[45vh] md:min-h-[62vh] bg-cover bg-center bg-no-repeat bg-fixed px-6 py-8 md:px-10"
+  className="relative min-h-[45vh] md:min-h-[62vh] bg-cover bg-[center_30%] md:bg-center bg-no-repeat bg-fixed px-6 py-8 md:px-10"
   style={{ backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${heroImage})` }}
 >
   <SiteNav light />
@@ -802,7 +813,7 @@ function AboutPage() {
 
   {/* Desktop background */}
   <div
-    className="absolute inset-0 hidden md:block bg-cover bg-center bg-no-repeat md:bg-fixed"
+    className="absolute inset-0 hidden md:block bg-cover bg-[center_30%] md:bg-center bg-no-repeat md:bg-fixed"
     style={{
       backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${aboutCtaImageDesktop})`
     }}
@@ -810,7 +821,7 @@ function AboutPage() {
 
   {/* Mobile background */}
   <div
-    className="absolute inset-0 md:hidden bg-cover bg-center bg-no-repeat"
+    className="absolute inset-0 md:hidden bg-cover bg-[center_30%] md:bg-center bg-no-repeat"
     style={{
       backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${aboutCtaImageMobile})`
     }}
@@ -1004,7 +1015,7 @@ function ContactPage() {
   return (
     <>
 <section
-  className="relative min-h-[45vh] md:min-h-[62vh] bg-cover bg-center bg-no-repeat bg-fixed px-6 py-8 md:px-10"
+  className="relative min-h-[45vh] md:min-h-[62vh] bg-cover bg-[center_30%] md:bg-center bg-no-repeat bg-fixed px-6 py-8 md:px-10"
   style={{ backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${contactHeroImage})` }}
 >
   <SiteNav light />
