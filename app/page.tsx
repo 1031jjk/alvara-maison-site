@@ -579,7 +579,7 @@ function PortfolioSection() {
   return (
     <section style={{ backgroundColor: colors.cream }}>
      <section
-  className="relative overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed px-6 py-20 md:px-10 md:py-28"
+  className="relative overflow-hidden bg-cover bg-center bg-no-repeat md:bg-fixed px-6 py-20 md:px-10 md:py-28"
 style={{
   backgroundImage: `
     linear-gradient(rgba(43, 38, 20, 0.35), rgba(245,240,232,0.35)),
@@ -635,7 +635,7 @@ style={{
 function ClosingCta() {
   return (
     <section
-      className="relative overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed px-6 py-16 md:px-10 md:py-24"
+      className="relative overflow-hidden bg-cover bg-center bg-no-repeat md:bg-fixed px-6 py-16 md:px-10 md:py-24"
       style={{ backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${ctaImage})` }}
     >
       <div className="mx-auto max-w-7xl text-center">
