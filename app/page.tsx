@@ -18,14 +18,21 @@ const colors = {
 };
 
 const heroImage =
-  "https://nwdb.nyc/wp-content/uploads/2021/02/1216_176-Broadway-master-bedroom_02_D.jpg";
+  "https://jreiko.com/wp-content/uploads/2024/04/J.ReikoDesignCo-QuietLuxuryBedroom-01.jpg";
+const heroImageMobile = 
+  "https://jreiko.com/wp-content/uploads/2024/04/J.ReikoDesignCo-QuietLuxuryBedroom-01.jpg"
 const portfolioHeroImage =
   "https://wwd.com/wp-content/uploads/2023/08/GettyImages-1357529184-e1690979672961.jpg";
   const contactHeroImage =
-  "https://media.admiddleeast.com/photos/652a576827fa57f09b169936/16:9/w_2560%2Cc_limit/22060_press_jcarlyle_9-16-22_12.jpg";
+  "https://jreiko.com/wp-content/uploads/2024/04/J.ReikoDesignCo-QuietLuxuryBedroom-01.jpg";
+  const aboutCtaImageDesktop = 
+  "https://media.licdn.com/dms/image/v2/D4D12AQF4qO5RrplqQA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1724518397946?e=2147483647&v=beta&t=stuZb_DF6-Vm801oAwe_6eHGH9r5dCnL736ek_OMMkc";
+  const aboutCtaImageMobile = 
+  "https://media.licdn.com/dms/image/v2/D4D12AQF4qO5RrplqQA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1724518397946?e=2147483647&v=beta&t=stuZb_DF6-Vm801oAwe_6eHGH9r5dCnL736ek_OMMkc";
 const successImage =
-  "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=80";
-
+  "https://media.licdn.com/dms/image/v2/D4D12AQF4qO5RrplqQA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1724518397946?e=2147483647&v=beta&t=stuZb_DF6-Vm801oAwe_6eHGH9r5dCnL736ek_OMMkc";
+const ctaImage =
+  "https://media.admiddleeast.com/photos/652a576827fa57f09b169936/16:9/w_2560%2Cc_limit/22060_press_jcarlyle_9-16-22_12.jpg";
 const aboutImages = [
   "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1400&q=80",
   "https://images.unsplash.com/photo-1505693416388-8b8f0f0d3c1d?auto=format&fit=crop&w=1400&q=80",
@@ -95,108 +102,160 @@ function SectionHeading({
 }
 
 function SiteNav({ light = true }: { light?: boolean }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const textClass = light ? "text-white" : "";
   const borderColor = light ? "rgba(255,255,255,0.28)" : colors.stone;
   const bg = light ? "rgba(251,248,243,0.18)" : colors.warmButton;
   const color = light ? "#ffffff" : colors.warmButtonText;
 
   return (
-    <div className="absolute inset-x-0 top-0 z-30 px-2 py-2 md:px-6 md:py-3">
-      <div className="flex w-full items-start justify-between">
+    <div className="absolute inset-x-0 top-0 z-30 px-4 py-4 md:px-6 md:py-3">
+
+      <div className="flex w-full items-center justify-between">
+
+        {/* Logo */}
         <a href="#" className="flex items-center">
-  <img
-    src="/logo.png"
-    alt="Alvara Maison"
-    className="h-50 md:h-20 w-auto brightness-0 invert"
-  />
-</a>
-        <div className="flex items-center gap-4 text-xs uppercase tracking-[0.18em] md:gap-8 md:text-sm mt-4 md:mt-4">
+          <img
+            src="/logo.png"
+            alt="Alvara Maison"
+            className="h-10 md:h-20 w-auto object-contain brightness-0 invert"
+          />
+        </a>
+
+        {/* Desktop navigation */}
+        <div className="hidden md:flex items-center gap-8 text-sm uppercase tracking-[0.18em]">
           <a href="#" className={textClass}>Home</a>
           <a href="#about" className={textClass}>About us</a>
+
           <a
             href="#contact"
-            className="rounded-full px-5 py-2"
+            className="rounded-full px-6 py-2"
             style={{ backgroundColor: bg, border: `1px solid ${borderColor}`, color }}
           >
             Contact us
           </a>
         </div>
+
+        {/* Mobile hamburger / X button */}
+        <button
+          className="md:hidden flex flex-col gap-[5px]"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+
+          {menuOpen ? (
+            <span className="text-white text-3xl leading-none">×</span>
+          ) : (
+            <>
+              <span className="w-6 h-[2px] bg-white"></span>
+              <span className="w-6 h-[2px] bg-white"></span>
+              <span className="w-6 h-[2px] bg-white"></span>
+            </>
+          )}
+
+        </button>
+
       </div>
+
+      {/* Mobile dropdown */}
+      {menuOpen && (
+        <div
+          className="absolute left-0 top-full w-full md:hidden"
+          style={{ backgroundColor: colors.sand }}
+        >
+
+          <div className="flex flex-col items-center py-8 gap-6 uppercase tracking-[0.18em] text-sm">
+
+            <a
+              href="#"
+              style={{ color: colors.text }}
+              onClick={() => setMenuOpen(false)}
+            >
+              Home
+            </a>
+
+            <a
+              href="#about"
+              style={{ color: colors.text }}
+              onClick={() => setMenuOpen(false)}
+            >
+              About us
+            </a>
+
+            <a
+              href="#contact"
+              className="rounded-full px-6 py-2"
+              style={{
+                backgroundColor: colors.warmButton,
+                color: colors.warmButtonText,
+              }}
+              onClick={() => setMenuOpen(false)}
+            >
+              Contact us
+            </a>
+
+          </div>
+
+        </div>
+      )}
     </div>
   );
 }
 
 function HeroSection() {
   return (
- <section
- className="relative flex min-h-[100vh] items-center overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed px-6 py-8 md:px-10"
-  style={{ backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${heroImage})` }}
->
-  <SiteNav light />
-  <div className="mx-auto w-full max-w-7xl">
-    <FadeUp>
-      <div className="mx-auto max-w-4xl text-center">
-        <p className="mb-4 text-s uppercase tracking-[0.35em] text-white/80">
-          Invest Smart with Alvara Maison
-        </p>
+    <section className="relative flex min-h-[100vh] items-center overflow-hidden px-6 py-8 md:px-10">
 
-        <h1
-          className="text-5xl leading-tight text-white md:text-7xl"
-          style={{ fontFamily: "'Playfair Display', serif" }}
-        >
-          Effortless Income,
-        </h1>
- <h1
-          className="text-5xl leading-tight text-white md:text-7xl"
-          style={{ fontFamily: "'Playfair Display', serif" }}
-        >
-          Expert Care
-        </h1>
+      {/* Desktop background */}
+      <div
+        className="absolute inset-0 hidden md:block bg-cover bg-center bg-no-repeat bg-fixed"
+        style={{
+          backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${heroImage})`,
+        }}
+      />
 
-        <p className="mt-6 mx-auto max-w-3xl text-base font light leading-8 text-white/85 md:text-lg">
-          Maximize returns, minimize stress. We transform properties into profitable, well-maintained luxury stays promising guaranteed income and a stress-free ownership experience.
-        </p>
+      {/* Mobile background */}
+      <div
+        className="absolute inset-0 md:hidden bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${heroImageMobile})`,
+        }}
+      />
+
+      <SiteNav light />
+
+      <div className="relative mx-auto w-full max-w-7xl">
+
+        <FadeUp>
+          <div className="mx-auto max-w-4xl text-center">
+
+            <p className="mb-4 text-xs uppercase tracking-[0.35em] text-white/80">
+              Invest Smart with Alvara Maison
+            </p>
+
+            <h1
+              className="text-5xl leading-tight text-white md:text-7xl"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
+              Effortless Income,
+            </h1>
+
+            <h1
+              className="text-5xl leading-tight text-white md:text-7xl"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
+              Expert Care
+            </h1>
+
+            <p className="mt-6 mx-auto max-w-3xl text-base leading-8 text-white/85 md:text-lg">
+              Maximize returns, minimize stress. We transform properties into profitable, well-maintained luxury stays promising guaranteed income and a stress-free ownership experience.
+            </p>
+
+          </div>
+        </FadeUp>
+
       </div>
-    </FadeUp>
-  </div>
-</section>
-  );
-}
-
-function AboutBlock({
-  image,
-  title,
-  body1,
-  body2,
-  imageLeft = false,
-}: {
-  image: string;
-  title: string;
-  body1: string;
-  body2: string;
-  imageLeft?: boolean;
-}) {
-  return (
-    <div className="grid items-center gap-8 md:grid-cols-2">
-      <FadeUp>
-        <div className={imageLeft ? "md:order-1" : "md:order-2"}>
-          <img src={image} alt={title} className="h-[420px] w-full rounded-[2rem] object-cover shadow-xl md:h-[520px]" />
-        </div>
-      </FadeUp>
-      <FadeUp delay={0.04}>
-        <div className={imageLeft ? "md:order-2" : "md:order-1"}>
-          <h3 className="text-3xl leading-tight md:text-5xl" style={{ color: colors.text, fontFamily: "Georgia, serif" }}>
-            {title}
-          </h3>
-          <p className="mt-5 text-base leading-8 md:text-lg" style={{ color: colors.muted }}>
-            {body1}
-          </p>
-          <p className="mt-5 text-base leading-8" style={{ color: colors.muted }}>
-            {body2}
-          </p>
-        </div>
-      </FadeUp>
-    </div>
+    </section>
   );
 }
 
@@ -411,20 +470,20 @@ function SuccessSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-10 text-center"
+          className="mb-10"
         >
           <p
-            className="mb-4 text-sm md:text-base uppercase tracking-[0.35em]"
+            className="mb-0 text-sm md:text-base uppercase tracking-[0.35em]"
             style={{ color: colors.muted }}
           >
             Own a property?
           </p>
 
           <h2
-            className="text-5xl leading-tight md:text-7xl"
+            className="text-4xl leading-tight md:text-7xl"
             style={{ color: colors.text, fontFamily: "Georgia, serif" }}
           >
-            Let it work for you.
+            Let It Work for You.
           </h2>
 
           <p
@@ -483,11 +542,11 @@ function SuccessSection() {
                   className={isMiddle ? "md:order-1" : ""}
                 >
                   <h3
-                    className="text-3xl leading-tight"
-                    style={{ color: colors.text, fontFamily: "Georgia, serif" }}
-                  >
-                    {step.title}
-                  </h3>
+  className="text-3xl leading-tight text-center"
+  style={{ color: colors.text, fontFamily: "Georgia, serif" }}
+>
+  {step.title}
+</h3>
 
                   <p
                     className="mt-4 text-base leading-7"
@@ -510,9 +569,13 @@ function PortfolioSection() {
     <section style={{ backgroundColor: colors.cream }}>
      <section
   className="relative overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed px-6 py-20 md:px-10 md:py-28"
-  style={{
-    backgroundImage: `linear-gradient(rgba(20, 17, 14, 0.38), rgba(20, 17, 14, 0.38)), url(${portfolioHeroImage})`,
-  }}
+style={{
+  backgroundImage: `
+    linear-gradient(rgba(43, 38, 20, 0.35), rgba(245,240,232,0.35)),
+    linear-gradient(rgba(52, 27, 3, 0.35), rgba(20,17,14,0.35)),
+    url(${portfolioHeroImage})
+  `
+}}
 >
         <div className="mx-auto max-w-7xl">
           <FadeUp>
@@ -538,17 +601,17 @@ function PortfolioSection() {
       </section>
 
 <section
-  className="px-8 py-10 md:px-12 md:py-15 lg:px-17"
+  className="px-7 py-10 md:px-12 md:py-15 lg:px-17"
   style={{ backgroundColor: colors.cream }}
 >
   <div className="w-full">
-    <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+    <div className="grid grid-cols-1 gap-7 md:grid-cols-3">
       {portfolioImages.map((src, index) => (
         <img
           key={src + index}
           src={src}
           alt={`Portfolio ${index + 1}`}
-          className="aspect-[1/1] min-h-[440px] md:min-h-[540px] w-full object-cover"
+          className="aspect-square w-full object-cover"
         />
       ))}
     </div>
@@ -562,7 +625,7 @@ function ClosingCta() {
   return (
     <section
       className="relative overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed px-6 py-16 md:px-10 md:py-24"
-      style={{ backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${contactHeroImage})` }}
+      style={{ backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${ctaImage})` }}
     >
       <div className="mx-auto max-w-7xl text-center">
         <SectionHeading
@@ -572,13 +635,18 @@ function ClosingCta() {
           light
           centered
         />
-        <a
-          href="#contact"
-          className="inline-block rounded-full px-7 py-3 text-sm uppercase tracking-[0.18em]"
-          style={{ backgroundColor: colors.warmButton, color: colors.warmButtonText }}
-        >
-          Get in touch
-        </a>
+
+<button
+  onClick={() => {
+    window.location.hash = "contact";
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }}
+  className="inline-block rounded-full px-7 py-3 text-sm uppercase tracking-[0.18em]"
+  style={{ backgroundColor: colors.warmButton, color: colors.warmButtonText }}
+>
+  Get in touch
+</button>
+
       </div>
     </section>
   );
@@ -628,24 +696,26 @@ function AboutPage() {
   return (
     <>
 <section
-  className="relative min-h-[62vh] bg-cover bg-center bg-no-repeat bg-fixed px-6 py-8 md:px-10"
-  style={{
-    backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${heroImage})`,
-  }}
+  className="relative min-h-[45vh] md:min-h-[62vh] bg-cover bg-center bg-no-repeat bg-fixed px-6 py-8 md:px-10"
+  style={{ backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${heroImage})` }}
 >
-        <SiteNav light />
-        <div className="mx-auto max-w-7xl pt-28 md:pt-36">
-          <h1
-            className="text-5xl leading-tight text-white md:text-7xl"
-            style={{ fontFamily: "'Playfair Display', serif" }}
-          >
-            About us
-          </h1>
-          <p className="mt-4 max-w-2xl text-base leading-8 text-white/85 md:text-lg">
-            A more refined, owner focused way to approach property performance.
-          </p>
-        </div>
-      </section>
+  <SiteNav light />
+
+  <div className="mx-auto max-w-7xl pt-28 md:pt-36 text-center">
+
+    <h1
+      className="text-5xl leading-tight text-white md:text-7xl"
+      style={{ fontFamily: "'Playfair Display', serif" }}
+    >
+      About us
+    </h1>
+
+    <p className="mt-4 mx-auto max-w-3xl text-base leading-8 text-white/85 md:text-lg">
+      A more refined, owner focused way to approach property performance.
+    </p>
+
+  </div>
+</section>
 
 <section
   className="px-6 py-16 md:px-10 md:py-24"
@@ -705,11 +775,25 @@ function AboutPage() {
   </div>
 </section>
 
-<section
-  className="px-6 py-20 md:px-10 md:py-15"
-  style={{ backgroundColor: colors.cream }}
->
-  <div className="mx-auto max-w-7xl">
+<section className="relative overflow-hidden px-6 py-20 md:px-10 md:py-15">
+
+  {/* Desktop background */}
+  <div
+    className="absolute inset-0 hidden md:block bg-cover bg-center bg-no-repeat md:bg-fixed"
+    style={{
+      backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${aboutCtaImageDesktop})`
+    }}
+  />
+
+  {/* Mobile background */}
+  <div
+    className="absolute inset-0 md:hidden bg-cover bg-center bg-no-repeat"
+    style={{
+      backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${aboutCtaImageMobile})`
+    }}
+  />
+
+  <div className="relative mx-auto max-w-7xl">
 
     <div
       className="grid items-center gap-10 md:grid-cols-2 pt-7"
@@ -718,31 +802,32 @@ function AboutPage() {
 
       <FadeUp>
         <h3
-          className="text-3xl leading-tight md:text-4xl"
-          style={{ color: colors.text, fontFamily: "'Playfair Display', serif" }}
+          className="text-3xl leading-tight text-center md:text-left md:text-4xl text-white"
+          style={{ fontFamily: "'Playfair Display', serif" }}
         >
           Want to Maximize Your Property’s Potential? Let's Talk!
         </h3>
       </FadeUp>
 
-<FadeUp delay={0.08}>
-  <div className="flex flex-col gap-6 md:items-end">
-    <a
-      href="#contact"
-      className="rounded-full px-8 py-3 text-sm uppercase tracking-[0.18em]"
-      style={{
-        backgroundColor: colors.warmButton,
-        color: colors.warmButtonText,
-      }}
-    >
-      Contact us
-    </a>
-  </div>
-</FadeUp>
+      <FadeUp delay={0.08}>
+        <div className="flex flex-col items-center gap-6 md:items-end">
+          <a
+            href="#contact"
+            className="inline-block rounded-full px-8 py-3 text-sm uppercase tracking-[0.18em]"
+            style={{
+              backgroundColor: colors.warmButton,
+              color: colors.warmButtonText,
+            }}
+          >
+            Contact us
+          </a>
+        </div>
+      </FadeUp>
 
     </div>
 
   </div>
+
 </section>
     </>
   );
@@ -845,17 +930,21 @@ ${values.message}`
 function ContactPage() {
   return (
     <>
-      <section className="relative min-h-[62vh] bg-cover bg-center bg-no-repeat bg-fixed px-6 py-8 md:px-10" style={{ backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${contactHeroImage})` }}>
-        <SiteNav light />
-        <div className="mx-auto max-w-7xl pt-28 md:pt-45">
-<h1
-  className="text-5xl leading-tight text-white md:text-7xl"
-  style={{ fontFamily: "'Playfair Display', serif" }}
+<section
+  className="relative min-h-[45vh] md:min-h-[62vh] bg-cover bg-center bg-no-repeat bg-fixed px-6 py-8 md:px-10"
+  style={{ backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${contactHeroImage})` }}
 >
-  Contact us
-</h1>
-        </div>
-      </section>
+  <SiteNav light />
+
+  <div className="mx-auto max-w-7xl pt-28 md:pt-45 text-center">
+    <h1
+      className="text-5xl leading-tight text-white md:text-7xl"
+      style={{ fontFamily: "'Playfair Display', serif" }}
+    >
+      Contact us
+    </h1>
+  </div>
+</section>
 
       <section id="contact" className="px-6 py-16 md:px-10 md:py-24" style={{ backgroundColor: colors.background }}>
         <div className="mx-auto max-w-7xl">
@@ -889,14 +978,19 @@ export default function Page() {
 
   useEffect(() => {
     const setRouteFromHash = () => {
-      const hash = window.location.hash.replace("#", "");
+      const hash = window.location.hash.replace("#", "") || "home";
+
       if (hash === "about") setPage("about");
       else if (hash === "contact") setPage("contact");
       else setPage("home");
+
+      // force scroll to top when navigating
+      window.scrollTo({ top: 0, behavior: "instant" });
     };
 
     setRouteFromHash();
     window.addEventListener("hashchange", setRouteFromHash);
+
     return () => window.removeEventListener("hashchange", setRouteFromHash);
   }, []);
 
