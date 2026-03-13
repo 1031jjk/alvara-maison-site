@@ -859,21 +859,28 @@ function ContactForm() {
     return Object.keys(nextErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!validate()) return;
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
 
-    const subject = encodeURIComponent(values.subject);
-    const body = encodeURIComponent(
-      `Name: ${values.name}
-Email: ${values.email}
+  if (!validate()) return;
 
-Message:
-${values.message}`
-    );
-    window.location.href = `mailto:info@alvaramaison.com?subject=${subject}&body=${body}`;
-    setStatus("Your email app should open with the message ready to send.");
-  };
+  const response = await fetch("/api/contact", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(values)
+  });
+
+  const result = await response.json();
+
+  if (result.success) {
+    setStatus("Message sent successfully.");
+    setValues({ name: "", email: "", subject: "", message: "" });
+  } else {
+    setStatus("Something went wrong. Please try again.");
+  }
+};
 
   const inputStyle = (field: string) => ({
     backgroundColor: "#ffffff",
