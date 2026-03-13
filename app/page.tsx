@@ -22,7 +22,7 @@ const heroImage =
 const heroImageMobile = 
   "https://jreiko.com/wp-content/uploads/2024/04/J.ReikoDesignCo-QuietLuxuryBedroom-01.jpg"
 const portfolioHeroImage =
-  "https://wwd.com/wp-content/uploads/2023/08/GettyImages-1357529184-e1690979672961.jpg";
+  "https://luximos.imob.properties/fileManager_lux/noticias/imagem_820_big.jpg";
   const contactHeroImage =
   "https://jreiko.com/wp-content/uploads/2024/04/J.ReikoDesignCo-QuietLuxuryBedroom-01.jpg";
   const aboutCtaImageDesktop = 
@@ -504,7 +504,7 @@ function SuccessSection() {
             return (
               <div
                 key={step.title}
-                className="grid items-center gap-10 md:grid-cols-2"
+                className="grid items-center gap-8 md:grid-cols-2"
               >
                 <motion.div
   initial={{
