@@ -125,12 +125,17 @@ function SiteNav({ light = true }: { light?: boolean }) {
 
         {/* Desktop navigation */}
         <div className="hidden md:flex items-center gap-8 text-sm uppercase tracking-[0.18em]">
-          <a href="#" className={textClass}>Home</a>
-          <a href="#about" className={textClass}>About us</a>
+  <a href="#" className={`${textClass} transform transition duration-300 hover:scale-105`}>
+    Home
+  </a>
+
+  <a href="#about" className={`${textClass} transform transition duration-300 hover:scale-105`}>
+    About us
+  </a>
 
           <a
             href="#contact"
-            className="rounded-full px-6 py-2"
+            className="rounded-full px-6 py-2 transform transition duration-300 hover:scale-105"
             style={{ backgroundColor: bg, border: `1px solid ${borderColor}`, color }}
           >
             Contact us
@@ -652,7 +657,7 @@ function ClosingCta() {
     window.location.hash = "contact";
     window.scrollTo({ top: 0, behavior: "instant" });
   }}
-  className="inline-block rounded-full px-7 py-3 text-sm uppercase tracking-[0.18em]"
+  className="inline-block cursor-pointer rounded-full px-7 py-3 text-sm uppercase tracking-[0.18em] transform transition duration-300 hover:scale-105"
   style={{ backgroundColor: colors.warmButton, color: colors.warmButtonText }}
 >
   Get in touch
@@ -824,7 +829,7 @@ function AboutPage() {
         <div className="flex flex-col items-center gap-6 md:items-end">
           <a
             href="#contact"
-            className="inline-block rounded-full px-8 py-3 text-sm uppercase tracking-[0.18em]"
+            className="inline-block rounded-full px-8 py-3 text-sm uppercase tracking-[0.18em] transform transition duration-300 hover:scale-105"
             style={{
               backgroundColor: colors.warmButton,
               color: colors.warmButtonText,
@@ -969,8 +974,8 @@ function ContactForm({ setSuccess }: { setSuccess: (value: boolean) => void }) {
         </div>
 
         <button
-          type="submit"
-          className="cursor-pointer rounded-full px-6 py-3 text-sm uppercase tracking-[0.18em]"
+  type="submit"
+  className="cursor-pointer rounded-full px-6 py-3 text-sm uppercase tracking-[0.18em] transform transition duration-300 hover:scale-[1.02] active:scale-100"
           style={{
             backgroundColor: colors.warmButton,
             color: colors.warmButtonText,
