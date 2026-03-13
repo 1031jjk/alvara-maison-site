@@ -227,21 +227,21 @@ function HeroSection() {
       <div className="relative mx-auto w-full max-w-7xl">
 
         <FadeUp>
-          <div className="mx-auto max-w-4xl text-center">
+          <div className="mx-auto max-w-3xl text-center">
 
-            <p className="mb-4 text-xs uppercase tracking-[0.35em] text-white/80">
+            <p className="mb-3 text-xs uppercase tracking-[0.60em] text-white/80">
               Invest Smart with Alvara Maison
             </p>
 
             <h1
-              className="text-5xl leading-tight text-white md:text-7xl"
+              className="text-4xl leading-tight text-white md:text-7xl"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Effortless Income,
             </h1>
 
             <h1
-              className="text-5xl leading-tight text-white md:text-7xl"
+              className="text-4xl leading-tight text-white md:text-7xl"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Expert Care
