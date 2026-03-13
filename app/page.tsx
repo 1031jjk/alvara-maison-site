@@ -614,7 +614,7 @@ style={{
               <p className="mt-6 max-w-3xl text-base leading-8 text-white/85 md:text-lg">
                 Each property in our portfolio is carefully selected, beautifully presented, and maintained to create strong guest appeal while supporting long term owner performance.
               </p>
-              <p className="mt-5 max-w-3xl text-base leading-8 text-white/82">
+              <p className="mt-6 max-w-3xl text-base leading-8 text-white/85 md:text-lg">
                 From elevated urban stays to refined residential homes, every property is positioned to feel polished, memorable, and highly marketable while preserving a calm, premium brand standard.
               </p>
             </div>
