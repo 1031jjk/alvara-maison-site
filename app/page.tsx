@@ -266,7 +266,7 @@ function HeroSection() {
 
   <FadeUp delay={0.45}>
     <p className="mt-6 mx-auto max-w-3xl text-base font light leading-8 text-white/85 md:text-lg">
-      Maximize returns, minimize stress. At Alvara Maison, we transform properties into profitable, well-maintained luxury stays promising guaranteed income and a stress-free ownership experience.
+      Maximize returns, minimize stress. We transform properties into profitable, well-maintained luxury stays promising guaranteed income and a stress-free ownership experience.
     </p>
   </FadeUp>
 
