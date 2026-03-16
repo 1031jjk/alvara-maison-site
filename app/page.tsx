@@ -6,7 +6,7 @@ import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 const colors = {
   background: "#f5f0e8",
   cream: "#fbf8f3",
-  sand: "#ece7e0",
+  sand: "#f2eade",
   stone: "#ddd2c4",
   taupe: "#b4a594",
   warmButton: "#b8946a",
@@ -251,7 +251,7 @@ function HeroSection() {
       className="text-5xl leading-tight text-white md:text-7xl"
       style={{ fontFamily: "'Playfair Display', serif" }}
     >
-      Effortless Income,
+      Luxury Leasing
     </h1>
   </FadeUp>
 
@@ -260,13 +260,13 @@ function HeroSection() {
       className="text-5xl leading-tight text-white md:text-7xl"
       style={{ fontFamily: "'Playfair Display', serif" }}
     >
-      Expert Care
+      Done Right
     </h1>
   </FadeUp>
 
   <FadeUp delay={0.45}>
     <p className="mt-6 mx-auto max-w-3xl text-base font light leading-8 text-white/85 md:text-lg">
-      Maximize returns, minimize stress. We transform properties into profitable, well-maintained luxury stays promising guaranteed income and a stress-free ownership experience.
+      Maximize returns, minimize stress. At Alvara Maison, we transform properties into profitable, well-maintained luxury stays promising guaranteed income and a stress-free ownership experience.
     </p>
   </FadeUp>
 
