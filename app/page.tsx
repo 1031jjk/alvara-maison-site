@@ -219,7 +219,7 @@ function HeroSection() {
 
       {/* Desktop background */}
       <div
-        className="absolute inset-0 hidden md:block bg-cover bg-center bg-no-repeat bg-fixed"
+        className="absolute inset-0 hidden md:block bg-cover bg-[center_65%] bg-no-repeat bg-fixed"
         style={{
           backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${heroImage})`,
         }}
@@ -227,7 +227,7 @@ function HeroSection() {
 
       {/* Mobile background */}
       <div
-        className="absolute inset-0 md:hidden bg-cover bg-[center_30%] md:bg-center bg-no-repeat"
+        className="absolute inset-0 md:hidden bg-cover bg-[center_65%] md:bg-center bg-no-repeat"
         style={{
           backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${heroImageMobile})`,
         }}
@@ -730,7 +730,7 @@ function AboutPage() {
   return (
     <>
 <section
-  className="relative min-h-[45vh] md:min-h-[62vh] bg-cover bg-[center_30%] md:bg-center bg-no-repeat bg-fixed px-6 py-8 md:px-10"
+  className="relative min-h-[45vh] md:min-h-[62vh] bg-cover bg-[center_65%] bg-no-repeat bg-fixed px-6 py-8 md:px-10"
   style={{ backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${heroImage})` }}
 >
   <SiteNav light />
@@ -1015,7 +1015,7 @@ function ContactPage() {
   return (
     <>
 <section
-  className="relative min-h-[45vh] md:min-h-[62vh] bg-cover bg-[center_30%] md:bg-center bg-no-repeat bg-fixed px-6 py-8 md:px-10"
+  className="relative min-h-[45vh] md:min-h-[62vh] bg-cover bg-[center_65%] bg-no-repeat bg-fixed px-6 py-8 md:px-10"
   style={{ backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${contactHeroImage})` }}
 >
   <SiteNav light />
