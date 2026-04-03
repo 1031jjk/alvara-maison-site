@@ -110,7 +110,7 @@ function SiteNav({ light = true }: { light?: boolean }) {
   const color = light ? "#ffffff" : colors.warmButtonText;
 
   return (
-    <div className="absolute inset-x-0 top-0 z-30 px-4 md:px-6 md:py-3" style={{ paddingTop: 'calc(env(safe-area-inset-top) + 1rem)' }}>
+    <div className="absolute inset-x-0 top-0 z-30 px-4 py-4 md:px-6 md:py-3">
 
       <div className="flex w-full items-center justify-between">
 
@@ -215,7 +215,7 @@ function SiteNav({ light = true }: { light?: boolean }) {
 
 function HeroSection() {
   return (
-    <section className="relative flex min-h-[100vh] items-center overflow-hidden px-6 py-8 md:px-10" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
+    <section className="relative flex min-h-[100vh] items-center overflow-hidden px-6 py-8 md:px-10">
 
       {/* Desktop background */}
       <div
@@ -731,7 +731,7 @@ function AboutPage() {
     <>
 <section
   className="relative min-h-[45vh] md:min-h-[62vh] bg-cover bg-[center_65%] bg-no-repeat bg-fixed px-6 py-8 md:px-10"
-  style={{ backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${heroImage})`, paddingTop: 'env(safe-area-inset-top)' }}
+  style={{ backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${heroImage})` }}
 >
   <SiteNav light />
 
@@ -1016,7 +1016,7 @@ function ContactPage() {
     <>
 <section
   className="relative min-h-[45vh] md:min-h-[62vh] bg-cover bg-[center_65%] bg-no-repeat bg-fixed px-6 py-8 md:px-10"
-  style={{ backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${contactHeroImage})`, paddingTop: 'env(safe-area-inset-top)' }}
+  style={{ backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${contactHeroImage})` }}
 >
   <SiteNav light />
 

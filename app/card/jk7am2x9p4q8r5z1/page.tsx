@@ -82,11 +82,10 @@ export default function NfcCardPage() {
         className="relative min-h-[45vh] md:min-h-[50vh] bg-[length:130%] md:bg-cover bg-[center_75%] bg-no-repeat md:bg-fixed px-6 py-8 md:px-10"
         style={{
           backgroundImage: `linear-gradient(${colors.overlay}, ${colors.overlay}), url(${heroImage})`,
-          paddingTop: 'env(safe-area-inset-top)',
         }}
       >
         {/* Logo */}
-        <div className="absolute inset-x-0 top-0 z-30 px-4 md:px-6 md:py-5" style={{ paddingTop: 'calc(env(safe-area-inset-top) + 1rem)' }}>
+        <div className="absolute inset-x-0 top-0 z-30 px-4 py-4 md:px-6 md:py-5">
           <a href="https://www.alvaramaison.com">
             <img
               src="/logo.png"
