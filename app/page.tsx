@@ -1138,7 +1138,7 @@ export default function Page() {
     <main className="min-h-screen scroll-smooth" style={{ backgroundColor: colors.background, color: colors.text }}>
       {page === "home" ? <HomePage /> : page === "about" ? <AboutPage /> : <ContactPage />}
 
-      <footer className="px-6 py-8 text-center md:px-10" style={{ backgroundColor: colors.background }}>
+      <footer className="px-6 py-8 text-center md:px-10" style={{ backgroundColor: colors.background, paddingBottom: 'calc(env(safe-area-inset-bottom) + 2rem)' }}>
         <p className="text-sm" style={{ color: colors.muted }}>
           Copyright © 2026 Alvara Maison LLC
         </p>
