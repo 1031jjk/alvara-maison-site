@@ -110,7 +110,7 @@ function SiteNav({ light = true }: { light?: boolean }) {
   const color = light ? "#ffffff" : colors.warmButtonText;
 
   return (
-    <div className="absolute inset-x-0 top-0 z-30 px-4 py-4 md:px-6 md:py-3">
+    <div className="absolute inset-x-0 top-0 z-30 px-4 md:px-6 md:py-3" style={{ paddingTop: 'calc(env(safe-area-inset-top) + 1rem)' }}>
 
       <div className="flex w-full items-center justify-between">
 

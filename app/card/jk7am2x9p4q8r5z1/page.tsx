@@ -85,7 +85,7 @@ export default function NfcCardPage() {
         }}
       >
         {/* Logo */}
-        <div className="absolute inset-x-0 top-0 z-30 px-4 py-4 md:px-6 md:py-5">
+        <div className="absolute inset-x-0 top-0 z-30 px-4 md:px-6 md:py-5" style={{ paddingTop: 'calc(env(safe-area-inset-top) + 1rem)' }}>
           <a href="https://www.alvaramaison.com">
             <img
               src="/logo.png"
