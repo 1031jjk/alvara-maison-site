@@ -41,6 +41,7 @@ function SaveContactButton({ className }: { className?: string }) {
     const vcard = [
       "BEGIN:VCARD",
       "VERSION:3.0",
+      "N:Kim;Justin;;;",
       "FN:Justin Kim",
       "ORG:Alvara Maison",
       "TEL;TYPE=CELL:505-550-3021",
@@ -153,8 +154,8 @@ export default function NfcCardPage() {
               },
               {
                 label: "Website",
-                display: "www.alvaramaison.com",
-                href: "https://www.alvaramaison.com",
+                display: "alvaramaison.com",
+                href: "https://alvaramaison.com",
                 delay: 0.2,
               },
             ].map((item) => (
