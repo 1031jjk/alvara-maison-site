@@ -830,21 +830,21 @@ function AboutPage() {
   <div className="relative mx-auto max-w-7xl">
 
     <div
-      className="grid items-center gap-10 md:grid-cols-2 pt-7"
+      className="grid items-center gap-10 lg:grid-cols-2 pt-7"
       style={{ borderTop: `1px solid ${colors.stone}` }}
     >
 
       <FadeUp>
         <h3
-          className="text-3xl leading-tight text-center md:text-left md:text-4xl text-white"
+          className="text-3xl leading-tight text-center whitespace-normal lg:whitespace-nowrap lg:text-left lg:text-3xl text-white"
           style={{ fontFamily: "'Playfair Display', serif" }}
         >
-          Want to Maximize Your Property’s Potential? Let's Talk!
+          Want to Maximize Your Property’s Potential?
         </h3>
       </FadeUp>
 
       <FadeUp delay={0.08}>
-        <div className="flex flex-col items-center gap-6 md:items-end">
+        <div className="flex flex-col items-center gap-6 lg:items-end">
           <a
             href="#contact"
             className="inline-block rounded-full px-8 py-3 text-sm uppercase tracking-[0.18em] transform transition duration-300 hover:scale-105"
