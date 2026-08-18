@@ -1124,6 +1124,13 @@ export default function Page() {
       else if (hash === "contact") setPage("contact");
       else setPage("home");
 
+      document.title =
+        hash === "about"
+          ? "About Us | Alvara Maison"
+          : hash === "contact"
+          ? "Contact Us | Alvara Maison"
+          : "Alvara Maison";
+
       // force scroll to top when navigating
       window.scrollTo({ top: 0, behavior: "instant" });
     };
