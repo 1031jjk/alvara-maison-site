@@ -19,18 +19,18 @@ const colors = {
 
 const heroImage =
   "https://jreiko.com/wp-content/uploads/2024/04/J.ReikoDesignCo-QuietLuxuryBedroom-01.jpg";
-const heroImageMobile = 
+const heroImageMobile =
   "https://jreiko.com/wp-content/uploads/2024/04/J.ReikoDesignCo-QuietLuxuryBedroom-01.jpg"
 const portfolioHeroImage =
   "https://luximos.imob.properties/fileManager_lux/noticias/imagem_820_big.jpg";
   const contactHeroImage =
   "https://jreiko.com/wp-content/uploads/2024/04/J.ReikoDesignCo-QuietLuxuryBedroom-01.jpg";
-  const aboutCtaImageDesktop = 
+  const aboutCtaImageDesktop =
   "https://media.licdn.com/dms/image/v2/D4D12AQF4qO5RrplqQA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1724518397946?e=2147483647&v=beta&t=stuZb_DF6-Vm801oAwe_6eHGH9r5dCnL736ek_OMMkc";
-  const aboutCtaImageMobile = 
+  const aboutCtaImageMobile =
   "https://media.licdn.com/dms/image/v2/D4D12AQF4qO5RrplqQA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1724518397946?e=2147483647&v=beta&t=stuZb_DF6-Vm801oAwe_6eHGH9r5dCnL736ek_OMMkc";
 const successImage =
-  "https://media.licdn.com/dms/image/v2/D4D12AQF4qO5RrplqQA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1724518397946?e=2147483647&v=beta&t=stuZb_DF6-Vm801oAwe_6eHGH9r5dCnL736ek_OMMkc";
+  "https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=1400&q=80";
 const ctaImage =
   "https://media.admiddleeast.com/photos/652a576827fa57f09b169936/16:9/w_2560%2Cc_limit/22060_press_jcarlyle_9-16-22_12.jpg";
 const aboutImages = [
@@ -40,9 +40,9 @@ const aboutImages = [
 
 const portfolioImages = [
   "https://wwd.com/wp-content/uploads/2023/08/GettyImages-1357529184-e1690979672961.jpg?w=1000&h=563&crop=1",
-  "https://www.atomic-ranch.com/wp-content/uploads/2024/01/DSC07799-800x533.jpg",
-  "https://cdn.mos.cms.futurecdn.net/9DFRUYnY3Eu7nGrgB8hygE.jpg",
-  "https://www.thespruce.com/thmb/eNEDy0ib4ReAvWikahyPQcWSQ4A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Screenshot2025-12-24at12.17.14PM-aef15f6399324fd59d3139f624d2e5b6.png",
+  "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1400&q=80",
+  "https://images.unsplash.com/photo-1600585152915-d208bec867a1?auto=format&fit=crop&w=1400&q=80",
+  "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1400&q=80",
   "https://images.ctfassets.net/wlzmdirin2hy/4uv2NDkpa2YxdnUyJG72BI/1562a9496a6a0c02f5729655b0a146d5/lx_california79_hom_kalman_03",
   "https://www.mountainliving.com/content/uploads/2024/12/u/p/ml-winter-ea-photo-2-scaled.jpg",
 ];
@@ -461,7 +461,7 @@ function SuccessSection() {
   const steps = [
     {
       image:
-        "https://windsorlife.com/wp-content/uploads/2025/11/delmorephotography_s_wlf_5-1024x683.jpg",
+        "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=80",
       title: "Mission.",
       text:
       <>
@@ -470,7 +470,7 @@ function SuccessSection() {
     },
     {
       image:
-        "https://www.marthastewart.com/thmb/5HuP0UkW3b9A_TiGDPGt-fx4KoE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/2021-11-17-collected_belmont-33-Edit-df9880ffa9734b158f7436777ba804f0.jpg",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80",
       title: "Vision.",
       text:
         "Whether you’re looking to optimize a single home or expand your real estate portfolio, we transform properties into high-performing, luxury retreats—effortlessly. Looking ahead, we strive to redefine luxury living by creating a global network of stylish, high-yield retreats that deliver unparalleled value to both owners and guests.",
@@ -781,7 +781,7 @@ function AboutPage() {
 
       <FadeUp>
         <img
-          src="https://www.somfy.com.au/common/img/library/photo-1600585152220-90363fe7e115.png"
+          src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1400&q=80"
           alt="Luxury interior"
           className="w-full aspect-[16/9] object-cover rounded-xl shadow-xl md:h-[500px] md:aspect-auto"
         />
