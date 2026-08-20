@@ -465,7 +465,7 @@ function SuccessSection() {
       title: "Mission.",
       text:
       <>
-        Our mission is to provide property owners with guaranteed income, minimized risks, and impeccable care for their homes, all while delivering unforgettable stays for our guests. We bridge the gap between owners seeking peace of mind and travelers looking for high-quality, short-term accommodations.
+        Our mission is to provide property owners with guaranteed income, minimized risks, and impeccable care for their homes, all while delivering unforgettable stays for our guests. We bridge the gap between owners seeking peace of mind and discerning travelers looking for refined, elevated accommodations.
         </>
     },
     {
