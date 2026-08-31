@@ -20,11 +20,11 @@ const colors = {
 const heroImage =
   "https://archoneai.com/imgs/design-ideas/modern-living-room/hero-modern-living-room-design.webp";
 const heroImageMobile =
-  "https://jreiko.com/wp-content/uploads/2024/04/J.ReikoDesignCo-QuietLuxuryBedroom-01.jpg"
+  "https://archoneai.com/imgs/design-ideas/modern-living-room/hero-modern-living-room-design.webp"
 const portfolioHeroImage =
   "https://luximos.imob.properties/fileManager_lux/noticias/imagem_820_big.jpg";
   const contactHeroImage =
-  "https://jreiko.com/wp-content/uploads/2024/04/J.ReikoDesignCo-QuietLuxuryBedroom-01.jpg";
+  "https://archoneai.com/imgs/design-ideas/modern-living-room/hero-modern-living-room-design.webp";
   const aboutCtaImageDesktop =
   "https://media.licdn.com/dms/image/v2/D4D12AQF4qO5RrplqQA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1724518397946?e=2147483647&v=beta&t=stuZb_DF6-Vm801oAwe_6eHGH9r5dCnL736ek_OMMkc";
   const aboutCtaImageMobile =
