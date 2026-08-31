@@ -18,7 +18,7 @@ const colors = {
 };
 
 const heroImage =
-  "https://jreiko.com/wp-content/uploads/2024/04/J.ReikoDesignCo-QuietLuxuryBedroom-01.jpg";
+  "https://archoneai.com/imgs/design-ideas/modern-living-room/hero-modern-living-room-design.webp";
 const heroImageMobile =
   "https://jreiko.com/wp-content/uploads/2024/04/J.ReikoDesignCo-QuietLuxuryBedroom-01.jpg"
 const portfolioHeroImage =
@@ -470,7 +470,7 @@ function SuccessSection() {
     },
     {
       image:
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80",
+        "https://instantinteriorai.com/_next/image?url=https%3A%2F%2Finstantinteriorai.s3.us-east-1.amazonaws.com%2Fseo-designs%2Fmodern-living_room-5-1769457503892.png&w=3840&q=75",
       title: "Vision.",
       text:
         "Whether you’re looking to optimize a single home or expand your real estate portfolio, we transform properties into high-performing, luxury retreats—effortlessly. Looking ahead, we strive to redefine luxury living by creating a global network of stylish, high-yield retreats that deliver unparalleled value to both owners and guests.",
